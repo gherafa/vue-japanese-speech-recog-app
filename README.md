@@ -1,5 +1,35 @@
+# Vue Japanese Speech Recognition App
 # Vue 3 + TypeScript + Vite
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+A Vue 3 + TypeScript + Vite frontend application for **Japanese speech recognition**, built to work with a **FastAPI backend** that handles audio processing and transcription.  
+Part of my AI-driven project to improve Japanese language learning through speech and listening practice.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+---
+
+## 🚀 Features
+
+- 🎤 Record Japanese speech using your browser  
+- 🔗 Send recorded audio to a FastAPI backend  
+- 📝 Display real-time transcription results  
+- ⚡ Built with Vue 3 + Vite + TypeScript  
+- 🎨 Clean responsive UI  
+- 🧩 Modular component structure  
+
+---
+
+## 🧱 Tech Stack
+
+- **Frontend:** Vue 3, TypeScript, Vite  
+- **Styling:** Tailwind CSS
+- **Backend:** FastAPI (my service from another repo)  
+- **Audio:** Web MediaRecorder API  
+
+---
+
+## 📦 Project Setup
+
+### Install dependencies
+```bash
+npm install
+# or
+yarn install
