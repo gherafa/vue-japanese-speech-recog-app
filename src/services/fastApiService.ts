@@ -19,7 +19,6 @@ async function postAudio(audioBlob: any, referenceText: string) {
 
   if (!res.ok) throw new Error("Failed to send audio")
 
-
   return res.json()
 }
 

@@ -1,8 +1,6 @@
 <template>
   <div class="min-h-screen w-full bg-gray-400 flex flex-col items-center py-8 px-4 md:px-0">
-
     <div class="bg-gray-50 dark:bg-gray-600 rounded-3xl shadow-xl w-full max-w-4xl p-6 md:p-12 flex flex-col gap-10">
-
       <h1 class="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white">
         Japanese Speech Recognition App
       </h1>
@@ -65,47 +63,47 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
-import { useMutation } from "@tanstack/vue-query"
-import VoiceRecorder from "../components/VoiceRecorder.vue"
-import ResultViewer from "../components/ResultViewer.vue"
-import KanjiSection from "../components/KanjiSection.vue"
-import DropdownLevel from "../components/DropdownLevel.vue"
-import { generateKanji } from "../services/fastApiService"
+  import { ref } from "vue"
+  import { useMutation } from "@tanstack/vue-query"
+  import VoiceRecorder from "../components/VoiceRecorder.vue"
+  import ResultViewer from "../components/ResultViewer.vue"
+  import KanjiSection from "../components/KanjiSection.vue"
+  import DropdownLevel from "../components/DropdownLevel.vue"
+  import { generateKanji } from "../services/fastApiService"
 
-const pronounceResult = ref("")
-const kanjiResult = ref("")
-const generateKanjiError = ref(false)
-const selectedLevel = ref('Select Level')
-const isOpen = ref(false)
-const isProcessingRecording = ref(false)
+  const pronounceResult = ref("")
+  const kanjiResult = ref("")
+  const generateKanjiError = ref(false)
+  const selectedLevel = ref('Select Level')
+  const isOpen = ref(false)
+  const isProcessingRecording = ref(false)
 
-function setPronounceResult(data) {
-  pronounceResult.value = data
-}
-
-function selectLevel(level) {
-  selectedLevel.value = level
-   isOpen.value = false
-}
-
-function toggleDropdown() {
-  isOpen.value = !isOpen.value
-}
-
-function setProcessingRecording(data) {
-  isProcessingRecording.value = data
-}
-
-const { mutate: generateKanjiMutation, isPending } = useMutation({
-  mutationFn: (level) => generateKanji(level),
-  onSuccess: (data) => {
-    kanjiResult.value = data
-    generateKanjiError.value = false
-  },
-  onError: (err) => {
-    console.error('Failed to generate Kanji:', err)
-    generateKanjiError.value = true
+  function setPronounceResult(data) {
+    pronounceResult.value = data
   }
-})
+
+  function selectLevel(level) {
+    selectedLevel.value = level
+    isOpen.value = false
+  }
+
+  function toggleDropdown() {
+    isOpen.value = !isOpen.value
+  }
+
+  function setProcessingRecording(data) {
+    isProcessingRecording.value = data
+  }
+
+  const { mutate: generateKanjiMutation, isPending } = useMutation({
+    mutationFn: (level) => generateKanji(level),
+    onSuccess: (data) => {
+      kanjiResult.value = data
+      generateKanjiError.value = false
+    },
+    onError: (err) => {
+      console.error('Failed to generate Kanji:', err)
+      generateKanjiError.value = true
+    }
+  })
 </script>

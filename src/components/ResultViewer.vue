@@ -35,14 +35,11 @@
       </p>
     </div>
 
-    <!-- RESULT SECTION -->
     <div v-else class="space-y-6">
-      <!-- Title -->
       <h3 class="text-2xl font-semibold text-gray-900">
         Speech Analysis Result
       </h3>
 
-      <!-- SCORE -->
       <div class="flex items-center gap-3">
         <span class="text-lg font-medium text-gray-700">Score:</span>
         <span
@@ -55,7 +52,6 @@
         </span>
       </div>
 
-      <!-- SPOKEN TEXT -->
       <div>
         <h4 class="font-semibold text-gray-800">Your Pronunciation</h4>
         <p class="text-gray-700 leading-relaxed bg-gray-100 p-3 rounded-xl mt-1">
@@ -63,7 +59,7 @@
         </p>
       </div>
 
-      <!-- REFERENCE TEXT -->
+
       <div>
         <h4 class="font-semibold text-gray-800">Reference Text</h4>
         <p class="text-gray-700 leading-relaxed bg-white p-3 rounded-xl mt-1 border border-gray-200">
@@ -81,27 +77,27 @@
     isProcessingRecording: Boolean
   })
 
-const scoreColor = computed(() => {
-  const s = props.pronounceResult.score || 0
-  if (s > 85) return "bg-green-500 text-white"
-  if (s > 60) return "bg-yellow-400 text-gray-900"
-  return "bg-red-500 text-white"
-})
+  const scoreColor = computed(() => {
+    const s = props.pronounceResult.score || 0
+    if (s > 85) return "bg-green-500 text-white"
+    if (s > 60) return "bg-yellow-400 text-gray-900"
+    return "bg-red-500 text-white"
+  })
 
-function highlightDiff(reference = "", spoken = "") {
-  if (!reference || !spoken) return spoken || ""
+  function highlightDiff(reference = "", spoken = "") {
+    if (!reference || !spoken) return spoken || ""
 
-  let result = ""
-  for (let i = 0; i < reference.length; i++) {
-    const refChar = reference[i]
-    const spokenChar = spoken[i]
+    let result = ""
+    for (let i = 0; i < reference.length; i++) {
+      const refChar = reference[i]
+      const spokenChar = spoken[i]
 
-    if (refChar !== spokenChar) {
-      result += `<span class="text-red-500 font-bold">${spokenChar || "?"}</span>`
-    } else {
-      result += `<span>${spokenChar}</span>`
+      if (refChar !== spokenChar) {
+        result += `<span class="text-red-500 font-bold">${spokenChar || "?"}</span>`
+      } else {
+        result += `<span>${spokenChar}</span>`
+      }
     }
+    return result
   }
-  return result
-}
 </script>

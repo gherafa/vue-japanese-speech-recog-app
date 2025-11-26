@@ -36,8 +36,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-
 const levels = ['basic', 'intermediate', 'advanced']
 
 const props = defineProps({

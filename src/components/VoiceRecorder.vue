@@ -1,24 +1,20 @@
 <template>
   <div class="flex flex-col items-center gap-8">
 
-    <!-- Glassmorphism Card -->
     <div
       class="backdrop-blur-xl bg-white/20 border border-white/30 shadow-xl 
              rounded-3xl p-8 flex flex-col items-center gap-6 w-[280px]"
     >
-      <!-- Circular Mic Button -->
       <div
         @click="toggleRecording"
         class="relative flex items-center justify-center cursor-pointer 
                transition active:scale-95"
       >
-        <!-- Glowing Ring -->
         <div 
           class="absolute inset-0 rounded-full"
           :class="isRecording ? 'recording-glow' : ''"
         ></div>
 
-        <!-- Inner Mic Button -->
         <div 
           class="w-24 h-24 rounded-full flex items-center justify-center
                  transition shadow-lg"
@@ -26,7 +22,6 @@
             ? 'bg-red-600 text-white' 
             : 'bg-blue-600 text-white hover:bg-blue-700'"
         >
-          <!-- Mic Icon -->
           <svg v-if="!isRecording" xmlns="http://www.w3.org/2000/svg" 
             class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -35,7 +30,6 @@
               d="M19 10a7 7 0 01-14 0M12 17v6m-4 0h8"/>
           </svg>
 
-          <!-- Stop Icon -->
           <svg v-else xmlns="http://www.w3.org/2000/svg" 
             class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <rect x="6" y="6" width="12" height="12" rx="2" stroke-width="2"/>

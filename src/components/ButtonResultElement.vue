@@ -18,14 +18,13 @@
   </div>
 </template>
 
-<script setup lang>
+<script setup>
 import { ref } from 'vue'
 
 const props = defineProps({
   value: String,
   section: String
 })
-
 
 const isReveal = ref(false)
 
