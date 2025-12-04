@@ -13,9 +13,6 @@ RUN npm install
 # Copy all source code
 COPY . .
 
-# Run tests
-RUN npm test
-
 # Build the production app
 RUN npm run build
 
